@@ -17,7 +17,8 @@ RUN echo "root:${ROOT_PASSWD}" | chpasswd
 ARG USERNAME=icuxika
 RUN useradd -m -G wheel -s /bin/zsh $USERNAME
 RUN echo "${USERNAME}:${USERNAME}" | chpasswd
-RUN echo "%${USERNAME} ALL=(ALL:ALL) ALL" >> /etc/sudoers
+# RUN echo "%${USERNAME} ALL=(ALL:ALL) ALL" >> /etc/sudoers
+RUN echo "%${USERNAME} ALL=(ALL:ALL) NOPASSWD: ALL" >> /etc/sudoers
 USER $USERNAME
 WORKDIR /home/$USERNAME
 
@@ -36,3 +37,10 @@ ADD --chown=$USERNAME /.devcontainer/.zshrc /home/$USERNAME
 
 # nvm
 RUN export https_proxy=$A_HTTPS_PROXY && wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.2/install.sh | bash || true
+
+# fzf
+RUN yes | sudo pacman -S fzf
+RUN echo '' >> /home/$USERNAME/.zshrc &&\
+    echo '# fzf' >> /home/$USERNAME/.zshrc &&\
+    echo 'source /usr/share/fzf/key-bindings.zsh' >> /home/$USERNAME/.zshrc &&\
+    echo 'source /usr/share/fzf/completion.zsh' >> /home/$USERNAME/.zshrc
