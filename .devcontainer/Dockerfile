@@ -33,3 +33,6 @@ RUN export https_proxy=$A_HTTPS_PROXY && git clone --depth=1 https://github.com/
     && git clone https://github.com/supercrabtree/k.git /home/$USERNAME/.oh-my-zsh/custom/plugins/k
 
 ADD --chown=$USERNAME /.devcontainer/.zshrc /home/$USERNAME
+
+# nvm
+RUN export https_proxy=$A_HTTPS_PROXY && wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.2/install.sh | bash || true
