@@ -10,6 +10,9 @@ RUN yes | pacman -S git zsh vi sudo wget
 
 ENV SHELL /bin/zsh
 
+# root passwd
+ARG ROOT_PASSWD=root
+RUN echo "root:${ROOT_PASSWD}" | chpasswd
 # non-root user
 ARG USERNAME=icuxika
 RUN useradd -m -G wheel -s /bin/zsh $USERNAME
