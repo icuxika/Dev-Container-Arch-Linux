@@ -18,12 +18,12 @@ RUN echo "%${USERNAME} ALL=(ALL:ALL) ALL" >> /etc/sudoers
 USER $USERNAME
 WORKDIR /home/$USERNAME
 
-ARG HTTP_PROXY=http://192.168.1.87:7890
-ARG HTTPS_PROXY=http://192.168.1.87:7890
+ARG A_HTTP_PROXY
+ARG A_HTTPS_PROXY
 
-RUN export https_proxy=$HTTPS_PROXY && wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O - | zsh || true
+RUN export https_proxy=$A_HTTPS_PROXY && wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O - | zsh || true
 
-RUN export https_proxy=$HTTPS_PROXY && git clone --depth=1 https://github.com/romkatv/powerlevel10k.git /home/$USERNAME/.oh-my-zsh/custom/themes/powerlevel10k \
+RUN export https_proxy=$A_HTTPS_PROXY && git clone --depth=1 https://github.com/romkatv/powerlevel10k.git /home/$USERNAME/.oh-my-zsh/custom/themes/powerlevel10k \
     && git clone https://github.com/zsh-users/zsh-syntax-highlighting.git /home/$USERNAME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting \
     && git clone https://github.com/zsh-users/zsh-autosuggestions.git /home/$USERNAME/.oh-my-zsh/custom/plugins/zsh-autosuggestions \
     && git clone https://github.com/zsh-users/zsh-completions.git /home/$USERNAME/.oh-my-zsh/custom/plugins/zsh-completions \

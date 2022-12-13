@@ -11,7 +11,9 @@
       "INSTALL_GRADLE": "true",
       "GRADLE_VERSION": "7.6",
       "NODE_VERSION": "16",
-      "VUE_CLI_VERSION": "latest"
+      "VUE_CLI_VERSION": "latest",
+      "A_HTTP_PROXY": "http://192.168.1.87:7890",
+      "A_HTTPS_PROXY": "http://192.168.1.87:7890"
     }
   },
 
@@ -41,5 +43,11 @@
   // Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
   // "remoteUser": "root"
 
-  "mounts": []
+  "mounts": [
+    {
+      "source": "dev_arch_linux_data",
+      "target": "${containerWorkspaceFolder}/projects",
+      "type": "volume"
+    }
+  ]
 }
