@@ -6,12 +6,7 @@
     "dockerfile": "Dockerfile",
     "context": "..",
     "args": {
-      "INSTALL_MAVEN": "true",
-      "MAVEN_VERSION": "3.8.6",
-      "INSTALL_GRADLE": "true",
-      "GRADLE_VERSION": "7.6",
-      "NODE_VERSION": "16",
-      "VUE_CLI_VERSION": "latest",
+      "NODE_VERSION": "lts/*",
       "A_HTTP_PROXY": "http://192.168.1.87:7890",
       "A_HTTPS_PROXY": "http://192.168.1.87:7890"
     }

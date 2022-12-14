@@ -36,7 +36,10 @@ RUN export https_proxy=$A_HTTPS_PROXY && git clone --depth=1 https://github.com/
 ADD --chown=$USERNAME /.devcontainer/.zshrc /home/$USERNAME
 
 # nvm
+ARG NODE_VERSION
 RUN export https_proxy=$A_HTTPS_PROXY && wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.2/install.sh | bash || true
+RUN source /home/$USERNAME/.nvm/nvm.sh \
+    nvm install $NODE_VERSION
 
 # fzf
 RUN yes | sudo pacman -S fzf
