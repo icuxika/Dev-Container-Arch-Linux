@@ -43,7 +43,7 @@ RUN source /home/$USERNAME/.nvm/nvm.sh \
     nvm install $NODE_VERSION
 
 # fzf
-RUN yes | sudo pacman -S fzf
+RUN yes | sudo pacman -S fzf bat
 RUN echo '' >> /home/$USERNAME/.zshrc &&\
     echo '# fzf' >> /home/$USERNAME/.zshrc &&\
     echo 'source /usr/share/fzf/key-bindings.zsh' >> /home/$USERNAME/.zshrc &&\
