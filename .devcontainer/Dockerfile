@@ -6,7 +6,7 @@ RUN pacman-key --init
 RUN yes | pacman -Syy
 RUN yes | pacman -S archlinux-keyring
 RUN yes | pacman -Syu
-RUN yes | pacman -S git zsh vi sudo wget
+RUN yes | pacman -S git zsh vim sudo wget
 
 ENV SHELL /bin/zsh
 
@@ -34,6 +34,7 @@ RUN export https_proxy=$A_HTTPS_PROXY && git clone --depth=1 https://github.com/
     && git clone https://github.com/supercrabtree/k.git /home/$USERNAME/.oh-my-zsh/custom/plugins/k
 
 ADD --chown=$USERNAME /.devcontainer/.zshrc /home/$USERNAME
+ADD --chown=$USERNAME /.devcontainer/.vimrc /home/$USERNAME
 
 # nvm
 ARG NODE_VERSION
