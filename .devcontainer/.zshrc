@@ -102,8 +102,14 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # nvm
-export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# alias
+alias ll="ls -lh"
+alias lla="ls -alh"
+alias hist="history"
 
 # fzf alias
 alias xpacs="pacman -Slq | fzf --multi --preview 'pacman -Si {1}' | xargs -ro sudo pacman -S"
@@ -113,9 +119,3 @@ alias xpacr="pacman -Qq | fzf --multi --preview 'pacman -Qi {1}' | xargs -ro sud
 export FZF_DEFAULT_OPTS='--preview "bat --style=numbers --color=always --line-range :500 {}"'
 export FZF_DEFAULT_COMMAND='find * -type f -maxdepth 1'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-
-# alias
-alias ll="ls -lh"
-alias lla="ls -alh"
-alias hist="history"
-
