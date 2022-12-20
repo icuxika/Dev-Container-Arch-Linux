@@ -7,6 +7,7 @@ RUN yes | pacman -Syy
 RUN yes | pacman -S archlinux-keyring
 RUN yes | pacman -Syu
 RUN yes | pacman -S git zsh vim sudo wget
+RUN pacman -S --needed base-devel --noconfirm
 
 ENV SHELL /bin/zsh
 
@@ -48,3 +49,11 @@ RUN echo '' >> /home/$USERNAME/.zshrc &&\
     echo '# fzf' >> /home/$USERNAME/.zshrc &&\
     echo 'source /usr/share/fzf/key-bindings.zsh' >> /home/$USERNAME/.zshrc &&\
     echo 'source /usr/share/fzf/completion.zsh' >> /home/$USERNAME/.zshrc
+
+# AUR helper
+RUN export https_proxy=$A_HTTPS_PROXY &&\
+    git clone https://aur.archlinux.org/yay.git &&\
+    cd yay &&\
+    makepkg -si --noconfirm &&\
+    cd /home/$USERNAME &&\
+    rm -rf .cache yay
