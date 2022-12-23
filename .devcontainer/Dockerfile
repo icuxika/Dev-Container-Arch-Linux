@@ -70,3 +70,9 @@ RUN yes | sudo pacman -S tree
 # jdk
 RUN yes | sudo pacman -S jdk17-openjdk
 ENV JAVA_HOME=/usr/lib/jvm/default
+
+# go
+RUN yes | sudo pacman -S go
+ENV PATH /home/$USERNAME/go/bin:$PATH
+RUN go env -w GO111MODULE=on &&\
+    go env -w GOPROXY=https://goproxy.cn,direct
