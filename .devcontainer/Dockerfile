@@ -57,3 +57,9 @@ RUN export https_proxy=$A_HTTPS_PROXY &&\
     makepkg -si --noconfirm &&\
     cd /home/$USERNAME &&\
     rm -rf .cache yay
+
+# Neovim packer.nvim
+RUN yes | sudo pacman -S neovim
+RUN export https_proxy=$A_HTTPS_PROXY &&\
+    git clone --depth 1 https://github.com/wbthomason/packer.nvim /home/$USERNAME/.local/share/nvim/site/pack/packer/start/packer.nvim
+ADD --chown=$USERNAME /.devcontainer/.config /home/$USERNAME/.config

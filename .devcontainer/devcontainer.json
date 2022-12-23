@@ -12,6 +12,10 @@
     }
   },
 
+  "settings": {
+    "terminal.integrated.fontFamily": "CaskaydiaCove NF Mono"
+  },
+
   // Configure tool-specific properties.
   "customizations": {
     // Configure properties specific to VS Code.

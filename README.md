@@ -20,11 +20,11 @@ Dev Container For Arch Linux
 - 对于`projects`目录需要更新权限 `sudo chown -R [用户名] projects`
 
 ### 字体
-> 为了终端图标显示正常，需要在vscode为容器对应的settings.json设置字体（[Powerline fonts](https://github.com/powerline/fonts) 中的`PL`结尾的字体也可以）
+> 为了终端图标显示正常，需要在`devcontainer.json`中配置终端字体，本项目配置的字体可以通过[Nerd-Fonts-Fork-CascadiaCode（对于Nerd Fonts的部分fork）](https://github.com/icuxika/Nerd-Fonts-Fork-CascadiaCode)获取，更多字体可以查看[Nerd Fonts](https://github.com/ryanoasis/nerd-fonts)
 ```
-{
-    "terminal.integrated.fontFamily": "CaskaydiaCove NF Mono"
-}
+"settings": {
+  "terminal.integrated.fontFamily": "CaskaydiaCove NF Mono"
+},
 ```
 
 ### zsh主题
