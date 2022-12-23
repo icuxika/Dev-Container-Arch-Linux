@@ -63,3 +63,10 @@ RUN yes | sudo pacman -S neovim
 RUN export https_proxy=$A_HTTPS_PROXY &&\
     git clone --depth 1 https://github.com/wbthomason/packer.nvim /home/$USERNAME/.local/share/nvim/site/pack/packer/start/packer.nvim
 ADD --chown=$USERNAME /.devcontainer/.config /home/$USERNAME/.config
+
+# Common
+RUN yes | sudo pacman -S tree
+
+# jdk
+RUN yes | sudo pacman -S jdk17-openjdk
+ENV JAVA_HOME=/usr/lib/jvm/default
