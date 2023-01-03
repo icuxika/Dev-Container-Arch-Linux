@@ -73,3 +73,6 @@ RUN yes | sudo pacman -S go
 ENV PATH /home/$USERNAME/go/bin:$PATH
 RUN go env -w GO111MODULE=on &&\
     go env -w GOPROXY=https://goproxy.cn,direct
+
+# maven settings.xml
+ADD --chown=$USERNAME /.devcontainer/.m2 /home/$USERNAME/.m2
