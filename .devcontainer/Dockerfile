@@ -23,9 +23,6 @@ RUN echo "%${USERNAME} ALL=(ALL:ALL) NOPASSWD: ALL" >> /etc/sudoers
 USER $USERNAME
 WORKDIR /home/$USERNAME
 
-ARG A_HTTP_PROXY
-ARG A_HTTPS_PROXY
-
 RUN export https_proxy=$A_HTTPS_PROXY && wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O - | zsh || true
 
 RUN export https_proxy=$A_HTTPS_PROXY && git clone --depth=1 https://github.com/romkatv/powerlevel10k.git /home/$USERNAME/.oh-my-zsh/custom/themes/powerlevel10k \

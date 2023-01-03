@@ -6,11 +6,13 @@
     "dockerfile": "Dockerfile",
     "context": "..",
     "args": {
-      "NODE_VERSION": "lts/*",
-      "A_HTTP_PROXY": "http://192.168.1.84:7890",
-      "A_HTTPS_PROXY": "http://192.168.1.84:7890"
+      "ROOT_PASSWD": "root",
+      "USERNAME": "icuxika",
+      "NODE_VERSION": "lts/*"
     }
   },
+
+  "runArgs": ["--env-file",".devcontainer/devcontainer.env"],
 
   "settings": {
     "terminal.integrated.fontFamily": "CaskaydiaCove NF Mono"
