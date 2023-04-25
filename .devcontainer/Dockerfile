@@ -23,7 +23,7 @@ RUN echo "%${USERNAME} ALL=(ALL:ALL) NOPASSWD: ALL" >> /etc/sudoers
 USER $USERNAME
 WORKDIR /home/$USERNAME
 
-RUN export https_proxy=$A_HTTPS_PROXY && wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O - | zsh || true
+RUN export https_proxy=$A_HTTPS_PROXY && wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O - | zsh || true
 
 RUN export https_proxy=$A_HTTPS_PROXY && git clone --depth=1 https://github.com/romkatv/powerlevel10k.git /home/$USERNAME/.oh-my-zsh/custom/themes/powerlevel10k \
     && git clone https://github.com/zsh-users/zsh-syntax-highlighting.git /home/$USERNAME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting \
