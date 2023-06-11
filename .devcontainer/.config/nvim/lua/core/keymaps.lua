@@ -6,7 +6,7 @@ local keymap = vim.keymap
 -- ----------视觉模式----------
 -- 单行或多行移动
 keymap.set("v", "J", ":m '>+1<CR>gv=gv")
-keymap.set("v", "K", ":m '>-2<CR>gv=gv")
+keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
 -- ----------正常模式----------
 -- 窗口
@@ -22,5 +22,8 @@ keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>")
 -- 切换buffer
 keymap.set("n", "<leader>l", ":bnext<CR>")
 keymap.set("n", "<leader>h", ":bprevious<CR>")
-
+-- 关闭当前buffer
+keymap.set("n", "<leader>q", ":bdelete %<CR>:bnext<CR>")
+-- 关闭其他buffer
+keymap.set("n", "<leader>Q", ":BufferLineCloseLeft<CR>:BufferLineCloseRight<CR>")
 
