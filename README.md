@@ -24,7 +24,7 @@ A_HTTPS_PROXY=http://192.168.1.84:7890
 - vscode新建终端会进入容器内的shell，进入到容器内`/workspaces/Dev-Container-Arch-Linux`
 
 - 由于`devcontainer.json`中的`mounts`设置，容器内会自动创建`/workspaces/Dev-Container-Arch-Linux/projects`，但是目录的权限属于`root`
-  > 对于`projects`目录需要更新权限 `sudo chown -R [用户名] projects`
+  > 对于`projects`目录需要更新权限 `sudo chown -R [用户名] projects`，目前已经在`postCreateCommand`中调用，使用时请调整用户名
 
 - 在`projects`中使用`git clone`拉取项目进行开发
 

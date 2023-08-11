@@ -11,44 +11,48 @@
       "NODE_VERSION": "lts/*"
     }
   },
-
-  "runArgs": ["--env-file",".devcontainer/devcontainer.env"],
-
+  "runArgs": [
+    "--env-file",
+    ".devcontainer/devcontainer.env"
+  ],
   "settings": {
     "terminal.integrated.fontFamily": "CaskaydiaCove NF Mono"
   },
-
   // Configure tool-specific properties.
   "customizations": {
     // Configure properties specific to VS Code.
     "vscode": {
       // Add the IDs of extensions you want installed when the container is created.
       "extensions": [
-        "Vue.volar",
-        "Vue.vscode-typescript-vue-plugin",
         "dbaeumer.vscode-eslint",
-        "esbenp.prettier-vscode"
+        "esbenp.prettier-vscode",
+        "redhat.java",
+        "VisualStudioExptTeam.intellicode-api-usage-examples",
+        "VisualStudioExptTeam.vscodeintellicode",
+        "vscjava.vscode-java-debug",
+        "vscjava.vscode-java-dependency",
+        "vscjava.vscode-java-pack",
+        "vscjava.vscode-java-test",
+        "vscjava.vscode-maven",
+        "Vue.volar",
+        "Vue.vscode-typescript-vue-plugin"
       ]
     }
   },
-
   // Use 'forwardPorts' to make a list of ports inside the container available locally.
   "forwardPorts": [],
-
   // Use 'postCreateCommand' to run commands after the container is created.
   // "postCreateCommand": "java -version",
-
   // Configure tool-specific properties.
   // "customizations": {},
-
   // Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
   // "remoteUser": "root"
-
   "mounts": [
     {
       "source": "dev_arch_linux_data",
       "target": "${containerWorkspaceFolder}/projects",
       "type": "volume"
     }
-  ]
+  ],
+  "postCreateCommand": "sudo chown -R icuxika projects"
 }
