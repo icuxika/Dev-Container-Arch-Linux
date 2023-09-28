@@ -1,6 +1,6 @@
 require'nvim-treesitter.configs'.setup {
   -- 添加不同语言
-  ensure_installed = {"vim", "bash", "c", "cpp", "javascript", "json", "java", "lua", "python"},
+  ensure_installed = {"vim", "bash", "c", "cpp", "javascript", "json", "java", "lua", "python", "markdown", "markdown_inline", "rust"},
 
   highlight = {
     enable = true,

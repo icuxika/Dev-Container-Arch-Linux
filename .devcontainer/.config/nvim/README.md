@@ -1,3 +1,9 @@
+### insert模式按下<leader>卡顿
+> 通过下述命令分析哪些快捷键使用了<leader>键并允许在insert模式下使用
+```
+:verbose imap <leader>
+```
+
 #### 重新载入文件 
 ```
 :so
@@ -97,4 +103,16 @@ gc
 #### 视觉模式v选中多行后格式化
 ```
 =
+```
+
+#### 显示git待提交的文件
+> 在打开的窗口选中文件使用按下大写字母`X`来reset文件，通过`:tabclose`关闭diffview窗口
+```
+:DiffviewOpen
+```
+
+### C++
+> 将`compile_commands.json`文件软连接到项目根目录方便`clangd`进行检索
+```
+ln -s out/build/default/compile_commands.json .
 ```
