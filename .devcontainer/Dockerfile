@@ -5,7 +5,7 @@ ADD /.devcontainer/mirrorlist /etc/pacman.d/mirrorlist
 RUN pacman-key --init
 RUN yes | pacman -Syy
 RUN yes | pacman -S archlinux-keyring
-RUN yes | pacman -Syu
+RUN pacman -Syyu --noconfirm
 RUN yes | pacman -S git zsh vim sudo wget
 RUN pacman -S --needed base-devel --noconfirm
 
